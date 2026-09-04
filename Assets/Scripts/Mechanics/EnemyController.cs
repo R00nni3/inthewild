@@ -34,11 +34,17 @@ namespace Platformer.Mechanics
         void OnCollisionEnter2D(Collision2D collision)
         {
             var player = collision.gameObject.GetComponent<PlayerController>();
+
             if (player != null)
             {
+                var playerCollider = collision.collider;
+
+                bool playerIsAbove = playerCollider.bounds.min.y > (_collider.bounds.center.y - 0.05f);
+
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
+                ev.playerIsAbove = playerIsAbove;
             }
         }
 
