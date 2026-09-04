@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (startPanel != null)
@@ -46,11 +45,11 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded) return;
         if (Time.time - lastHitTime < invicibilityTime) return;
-        lastHitTime = Time.time;
 
+        lastHitTime = Time.time;
         lives--;
 
-        if (lives < 0)
+        if (lives <= 0)
             GameOver();
         else
             RespawnPlayer();

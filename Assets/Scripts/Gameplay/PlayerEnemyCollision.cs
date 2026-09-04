@@ -6,7 +6,6 @@ using static Platformer.Core.Simulation;
 
 namespace Platformer.Gameplay
 {
-
     /// <summary>
     /// Fired when a Player collides with an Enemy.
     /// </summary>
@@ -15,19 +14,23 @@ namespace Platformer.Gameplay
     {
         public EnemyController enemy;
         public PlayerController player;
+        public bool playerIsAbove;
 
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {
-            var willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
+            bool playerAboveEnemy =
+                player.Bounds.min.y > enemy.Bounds.center.y;
 
-            if (willHurtEnemy)
+            if (playerAboveEnemy)
             {
                 var enemyHealth = enemy.GetComponent<Health>();
+
                 if (enemyHealth != null)
                 {
                     enemyHealth.Decrement();
+
                     if (!enemyHealth.IsAlive)
                     {
                         Schedule<EnemyDeath>().enemy = enemy;
@@ -46,7 +49,7 @@ namespace Platformer.Gameplay
             }
             else
             {
-                Schedule<PlayerDeath>();
+                GameManager.Instance.LoseLife();
             }
         }
     }
