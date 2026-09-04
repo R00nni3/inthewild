@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public float invicibilityTime = 1f; //Invisibilidad de 1 segundo después de perder una vida para no perder todas de un solo golpe. 
     private float lastHitTime = -10f;
+
+    [Header("Coleccionables")]
+    public int collectiblesCollected = 0;
+
+    [Header("UI de estado")]
+    public Image[] heartImages;
+    public TMPro.TextMeshProUGUI collectiblesText;
 
     [Header("Referencias")]
     public Transform spawnPoint;
@@ -33,6 +41,9 @@ public class GameManager : MonoBehaviour
             startPanel.SetActive(true);
             Time.timeScale = 0f;
         }
+
+        UpdateLivesUI();
+        UpdateCollectiblesUI();
     }
 
     public void StartGame()
@@ -48,11 +59,31 @@ public class GameManager : MonoBehaviour
 
         lastHitTime = Time.time;
         lives--;
+        UpdateLivesUI();
 
         if (lives <= 0)
             GameOver();
         else
             RespawnPlayer();
+    }
+
+    public void AddCollectible()
+    {
+        collectiblesCollected++;
+        UpdateCollectiblesUI();
+    }
+
+    void UpdateLivesUI()
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            heartImages[i].enabled = i < lives;
+        }
+    }
+
+    void UpdateCollectiblesUI()
+    {
+        if (collectiblesText != null) collectiblesText.text = collectiblesCollected.ToString();
     }
 
     void RespawnPlayer()
