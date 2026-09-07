@@ -49,6 +49,9 @@ El objetivo es recorrer el nivel de punta a punta, esquivando enemigos y zonas d
 Fondo de Jungla:
 https://trashboat93.itch.io/jungle-background-parallax
 
+Plataformas de junga:
+https://dinosdouisen.itch.io/jungle-platformer-game-tileset
+
 Corazón de vida:
 https://es.vecteezy.com/png/54978926-juego-corazon-pixelado
 
@@ -65,7 +68,7 @@ Rosario González Perucich
 Proyecto realizado para Taller de Videojuegos — IPChile.
 Docente Sabina Romero
 
-##Video demostración.
+**Video demostración.
 https://www.youtube.com/watch?v=S_wYN6Zhtn0
 
 ---
