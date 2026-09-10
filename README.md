@@ -41,6 +41,12 @@ El objetivo es recorrer el nivel de punta a punta, esquivando enemigos y zonas d
 
 ---
 
+## ⚠️ Desafíos encontrados
+
+- **Enemies** El mayor desafío que tuve, fue que en la configuración del entorno, al comenzar a jugar, los enemigos desaparecían de la pantalla, notando que no tenían contacto con las superficies, por lo que provocaba que cayeran eternamente. Al lograr solucionar esto, luego la interacción del personaje con el enemigo provocaba la muerte de ambos, sin importar como ocurriera el contacto.
+
+---
+
 ## 🎨 Créditos y assets utilizados
 
 - **Base del proyecto**: Unity Technologies — *2D Platformer Microgame* (plantilla oficial de Unity).
@@ -68,7 +74,7 @@ Rosario González Perucich
 Proyecto realizado para Taller de Videojuegos — IPChile.
 Docente Sabina Romero
 
-**Video demostración.
+**Video demostración.**
 https://www.youtube.com/watch?v=S_wYN6Zhtn0
 
 ---
